@@ -225,24 +225,30 @@
         
         .quiz-question {
             background: white;
-            padding: 20px;
-            margin: 15px 0;
+            padding: 25px;
+            margin: 20px 0;
             border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
         .quiz-question h4 {
             color: #1e3c72;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            line-height: 1.5;
         }
         
         .quiz-option {
-            padding: 12px;
-            margin: 8px 0;
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            margin: 10px 0;
             border: 2px solid #dee2e6;
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s;
+            background: white;
+            line-height: 1.6;
         }
         
         .quiz-option:hover {
@@ -251,7 +257,14 @@
         }
         
         .quiz-option input {
-            margin-right: 10px;
+            margin-right: 12px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        
+        .quiz-option input[type="radio"] {
+            width: 18px;
+            height: 18px;
         }
         
         .btn-submit {
@@ -1289,19 +1302,19 @@
                         <h4>1. ¿Cuál es la principal ventaja de usar ecoguía en la inserción de accesos vasculares?</h4>
                         <label class="quiz-option">
                             <input type="radio" name="q1" value="a">
-                            a) Reduce el tiempo del procedimiento
+                            <span>a) Reduce el tiempo del procedimiento</span>
                         </label>
                         <label class="quiz-option">
                             <input type="radio" name="q1" value="b">
-                            b) Aumenta la tasa de éxito y reduce complicaciones
+                            <span>b) Aumenta la tasa de éxito y reduce complicaciones</span>
                         </label>
                         <label class="quiz-option">
                             <input type="radio" name="q1" value="c">
-                            c) Elimina la necesidad de asepsia
+                            <span>c) Elimina la necesidad de asepsia</span>
                         </label>
                         <label class="quiz-option">
                             <input type="radio" name="q1" value="d">
-                            d) Permite usar catéteres más largos
+                            <span>d) Permite usar catéteres más largos</span>
                         </label>
                     </div>
                     
@@ -1309,19 +1322,19 @@
                         <h4>2. Un catéter Midline tiene su punta ubicada en:</h4>
                         <label class="quiz-option">
                             <input type="radio" name="q2" value="a">
-                            a) Tercio inferior de la vena cava superior
+                            <span>a) Tercio inferior de la vena cava superior</span>
                         </label>
                         <label class="quiz-option">
                             <input type="radio" name="q2" value="b">
-                            b) Vena axilar o subclavia proximal
+                            <span>b) Vena axilar o subclavia proximal</span>
                         </label>
                         <label class="quiz-option">
                             <input type="radio" name="q2" value="c">
-                            c) Aurícula derecha
+                            <span>c) Aurícula derecha</span>
                         </label>
                         <label class="quiz-option">
                             <input type="radio" name="q2" value="d">
-                            d) Vena basílica media
+                            <span>d) Vena basílica media</span>
                         </label>
                     </div>
                     
@@ -1329,19 +1342,19 @@
                         <h4>3. ¿Cuál es la ubicación ideal de la punta del catéter PICC?</h4>
                         <label class="quiz-option">
                             <input type="radio" name="q3" value="a">
-                            a) Vena subclavia
+                            <span>a) Vena subclavia</span>
                         </label>
                         <label class="quiz-option">
                             <input type="radio" name="q3" value="b">
-                            b) Tercio inferior de la vena cava superior
+                            <span>b) Tercio inferior de la vena cava superior</span>
                         </label>
                         <label class="quiz-option">
                             <input type="radio" name="q3" value="c">
-                            c) Aurícula derecha
+                            <span>c) Aurícula derecha</span>
                         </label>
                         <label class="quiz-option">
                             <input type="radio" name="q3" value="d">
-                            d) Vena braquial
+                            <span>d) Vena braquial</span>
                         </label>
                     </div>
                     
@@ -1349,19 +1362,19 @@
                         <h4>4. El Test de Allen evalúa:</h4>
                         <label class="quiz-option">
                             <input type="radio" name="q4" value="a">
-                            a) La permeabilidad de la arteria radial
+                            <span>a) La permeabilidad de la arteria radial</span>
                         </label>
                         <label class="quiz-option">
                             <input type="radio" name="q4" value="b">
-                            b) La circulación colateral de la arteria cubital
+                            <span>b) La circulación colateral de la arteria cubital</span>
                         </label>
                         <label class="quiz-option">
                             <input type="radio" name="q4" value="c">
-                            c) La presión arterial sistólica
+                            <span>c) La presión arterial sistólica</span>
                         </label>
                         <label class="quiz-option">
                             <input type="radio" name="q4" value="d">
-                            d) El diámetro de la arteria
+                            <span>d) El diámetro de la arteria</span>
                         </label>
                     </div>
                     
@@ -1369,19 +1382,19 @@
                         <h4>5. ¿Cuál catéter NO requiere verificación radiológica antes de su uso?</h4>
                         <label class="quiz-option">
                             <input type="radio" name="q5" value="a">
-                            a) PICC
+                            <span>a) PICC</span>
                         </label>
                         <label class="quiz-option">
                             <input type="radio" name="q5" value="b">
-                            b) Midline
+                            <span>b) Midline</span>
                         </label>
                         <label class="quiz-option">
                             <input type="radio" name="q5" value="c">
-                            c) Catéter venoso central femoral
+                            <span>c) Catéter venoso central femoral</span>
                         </label>
                         <label class="quiz-option">
                             <input type="radio" name="q5" value="d">
-                            d) Catéter venoso central subclavio
+                            <span>d) Catéter venoso central subclavio</span>
                         </label>
                     </div>
                     
@@ -1389,19 +1402,19 @@
                         <h4>6. La técnica de lavado "PUSH-PAUSE" consiste en:</h4>
                         <label class="quiz-option">
                             <input type="radio" name="q6" value="a">
-                            a) Empujar rápidamente toda la solución salina
+                            <span>a) Empujar rápidamente toda la solución salina</span>
                         </label>
                         <label class="quiz-option">
                             <input type="radio" name="q6" value="b">
-                            b) Infundir 1 ml, pausar 1 segundo, repetir
+                            <span>b) Infundir 1 ml, pausar 1 segundo, repetir</span>
                         </label>
                         <label class="quiz-option">
                             <input type="radio" name="q6" value="c">
-                            c) Pausar la infusión cada 5 minutos
+                            <span>c) Pausar la infusión cada 5 minutos</span>
                         </label>
                         <label class="quiz-option">
                             <input type="radio" name="q6" value="d">
-                            d) Empujar y luego aspirar
+                            <span>d) Empujar y luego aspirar</span>
                         </label>
                     </div>
                     
@@ -1409,19 +1422,19 @@
                         <h4>7. La complicación más grave de un catéter arterial es:</h4>
                         <label class="quiz-option">
                             <input type="radio" name="q7" value="a">
-                            a) Hematoma local
+                            <span>a) Hematoma local</span>
                         </label>
                         <label class="quiz-option">
                             <input type="radio" name="q7" value="b">
-                            b) Infección del sitio
+                            <span>b) Infección del sitio</span>
                         </label>
                         <label class="quiz-option">
                             <input type="radio" name="q7" value="c">
-                            c) Isquemia distal por trombosis arterial
+                            <span>c) Isquemia distal por trombosis arterial</span>
                         </label>
                         <label class="quiz-option">
                             <input type="radio" name="q7" value="d">
-                            d) Flebitis
+                            <span>d) Flebitis</span>
                         </label>
                     </div>
                     
@@ -1429,19 +1442,19 @@
                         <h4>8. ¿Cuál es la frecuencia recomendada para cambiar el apósito transparente de un PICC?</h4>
                         <label class="quiz-option">
                             <input type="radio" name="q8" value="a">
-                            a) Cada 24 horas
+                            <span>a) Cada 24 horas</span>
                         </label>
                         <label class="quiz-option">
                             <input type="radio" name="q8" value="b">
-                            b) Cada 48 horas
+                            <span>b) Cada 48 horas</span>
                         </label>
                         <label class="quiz-option">
                             <input type="radio" name="q8" value="c">
-                            c) Cada 7 días o PRN
+                            <span>c) Cada 7 días o PRN</span>
                         </label>
                         <label class="quiz-option">
                             <input type="radio" name="q8" value="d">
-                            d) Cada 14 días
+                            <span>d) Cada 14 días</span>
                         </label>
                     </div>
                     
@@ -1449,19 +1462,19 @@
                         <h4>9. La "barrera máxima estéril" para inserción de PICC incluye:</h4>
                         <label class="quiz-option">
                             <input type="radio" name="q9" value="a">
-                            a) Solo guantes estériles
+                            <span>a) Solo guantes estériles</span>
                         </label>
                         <label class="quiz-option">
                             <input type="radio" name="q9" value="b">
-                            b) Guantes y bata estéril
+                            <span>b) Guantes y bata estéril</span>
                         </label>
                         <label class="quiz-option">
                             <input type="radio" name="q9" value="c">
-                            c) Gorro, mascarilla, bata, guantes estériles y campo de cuerpo completo
+                            <span>c) Gorro, mascarilla, bata, guantes estériles y campo de cuerpo completo</span>
                         </label>
                         <label class="quiz-option">
                             <input type="radio" name="q9" value="d">
-                            d) Guantes y campo pequeño
+                            <span>d) Guantes y campo pequeño</span>
                         </label>
                     </div>
                     
@@ -1469,19 +1482,19 @@
                         <h4>10. Un Test de Allen es normal cuando la reperfusión de la palma ocurre en:</h4>
                         <label class="quiz-option">
                             <input type="radio" name="q10" value="a">
-                            a) Menos de 6 segundos
+                            <span>a) Menos de 6 segundos</span>
                         </label>
                         <label class="quiz-option">
                             <input type="radio" name="q10" value="b">
-                            b) 6-10 segundos
+                            <span>b) 6-10 segundos</span>
                         </label>
                         <label class="quiz-option">
                             <input type="radio" name="q10" value="c">
-                            c) 10-15 segundos
+                            <span>c) 10-15 segundos</span>
                         </label>
                         <label class="quiz-option">
                             <input type="radio" name="q10" value="d">
-                            d) Más de 15 segundos
+                            <span>d) Más de 15 segundos</span>
                         </label>
                     </div>
                     
