@@ -11,6 +11,39 @@
             box-sizing: border-box;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Reset específico para etiquetas label en quizzes */
+        label.quiz-option {
+            display: flex !important;
+            width: 100% !important;
+        }
+        
+        label.quiz-option * {
+            box-sizing: border-box;
+        }
+        
+        /* Reset de estilos de Moodle que pueden interferir */
+        .quiz-section label {
+            display: flex !important;
+            float: none !important;
+            width: 100% !important;
+        }
+        
+        .quiz-section input[type="radio"] {
+            float: none !important;
+            margin-left: 0 !important;
+        }
+        
+        /* Prevenir que Moodle aplique estilos inline */
+        .quiz-question > label.quiz-option {
+            display: flex !important;
+            width: 100% !important;
+            flex-direction: row !important;
+        }
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -80,6 +113,7 @@
         
         .content {
             padding: 40px;
+            min-height: 500px;
         }
         
         .tab-content {
@@ -180,6 +214,20 @@
             border-collapse: collapse;
             margin: 20px 0;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow-x: auto;
+            display: block;
+        }
+        
+        .tabla-comparativa thead {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+        
+        .tabla-comparativa tbody {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
         }
         
         .tabla-comparativa th {
@@ -188,11 +236,15 @@
             padding: 15px;
             text-align: left;
             font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
         
         .tabla-comparativa td {
             padding: 15px;
             border-bottom: 1px solid #dee2e6;
+            vertical-align: top;
         }
         
         .tabla-comparativa tr:nth-child(even) {
@@ -201,6 +253,7 @@
         
         .tabla-comparativa tr:hover {
             background: #e9ecef;
+            transition: background 0.3s;
         }
         
         ul {
@@ -218,80 +271,221 @@
         
         .quiz-section {
             background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
-            padding: 30px;
+            padding: 40px;
             border-radius: 15px;
             margin: 30px 0;
         }
         
         .quiz-question {
             background: white;
-            padding: 25px;
-            margin: 20px 0;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin: 25px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: block;
+            width: 100%;
         }
         
         .quiz-question h4 {
             color: #1e3c72;
-            margin-bottom: 20px;
-            font-size: 1.1em;
-            line-height: 1.5;
+            margin-bottom: 25px;
+            font-size: 1.15em;
+            line-height: 1.6;
+            font-weight: 600;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e9ecef;
+            display: block;
+            width: 100%;
+        }
+        
+        .quiz-question > label {
+            display: block !important;
+            width: 100% !important;
         }
         
         .quiz-option {
-            display: flex;
-            align-items: center;
-            padding: 15px;
-            margin: 10px 0;
+            display: flex !important;
+            align-items: flex-start;
+            padding: 15px 20px;
+            margin: 12px 0;
             border: 2px solid #dee2e6;
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s;
             background: white;
-            line-height: 1.6;
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box;
+            clear: both;
+            float: none !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+            position: relative;
+        }
+        
+        .quiz-option:before,
+        .quiz-option:after {
+            content: "";
+            display: table;
+            clear: both;
         }
         
         .quiz-option:hover {
-            background: #e9ecef;
+            background: #f8f9fa;
             border-color: #667eea;
+            transform: translateX(5px);
         }
         
-        .quiz-option input {
-            margin-right: 12px;
-            cursor: pointer;
-            flex-shrink: 0;
+        .quiz-option:has(input:checked) {
+            background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+            border-color: #667eea;
+            border-width: 3px;
         }
         
         .quiz-option input[type="radio"] {
-            width: 18px;
-            height: 18px;
+            margin-right: 15px;
+            margin-top: 3px;
+            cursor: pointer;
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            accent-color: #667eea;
+            display: inline-block !important;
+            vertical-align: top !important;
+            float: none !important;
+        }
+        
+        .quiz-option input[type="radio"]:focus {
+            outline: 3px solid #667eea;
+            outline-offset: 2px;
+        }
+        
+        .quiz-option:focus-within {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+        }
+        
+        .quiz-option span {
+            flex: 1;
+            line-height: 1.6;
+            color: #495057;
+            font-size: 1em;
+            display: inline-block !important;
+            word-wrap: break-word;
+            vertical-align: top !important;
+            max-width: calc(100% - 40px);
         }
         
         .btn-submit {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
-            padding: 15px 40px;
-            font-size: 1.1em;
+            padding: 18px 50px;
+            font-size: 1.2em;
+            font-weight: 600;
             border-radius: 50px;
             cursor: pointer;
-            margin-top: 20px;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            margin-top: 30px;
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
             transition: all 0.3s;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .btn-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+        
+        .btn-submit:active {
+            transform: translateY(-1px);
+        }
+        
+        .btn-submit:focus {
+            outline: 3px solid #fff;
+            outline-offset: 3px;
         }
         
         .resultado {
             display: none;
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 10px;
+            padding: 30px;
+            margin-top: 30px;
+            border-radius: 15px;
             text-align: center;
             font-size: 1.2em;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            animation: slideDown 0.5s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .resultado h3 {
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        
+        .resultado p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        /* Reglas adicionales para compatibilidad con Moodle */
+        .quiz-section label.quiz-option {
+            display: flex !important;
+            width: 100% !important;
+            float: none !important;
+            clear: both !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+        
+        .quiz-question label {
+            display: flex !important;
+            width: 100% !important;
+            flex-direction: row !important;
+            align-items: flex-start !important;
+        }
+        
+        /* Forzar contenedor de opciones en bloque */
+        .quiz-question {
+            display: flex !important;
+            flex-direction: column !important;
+        }
+        
+        .quiz-question > * {
+            width: 100% !important;
+        }
+        
+        /* Sobrescribir cualquier display:inline de Moodle */
+        .quiz-section .quiz-question label.quiz-option,
+        .quiz-section label.quiz-option,
+        label.quiz-option {
+            display: flex !important;
+            flex-direction: row !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            flex-wrap: nowrap !important;
+        }
+        
+        /* Asegurar que los radio buttons no se alineen verticalmente */
+        .quiz-option input[type="radio"] {
+            display: inline-block !important;
+            vertical-align: top !important;
+        }
+        
+        .quiz-option span {
+            display: inline-block !important;
+            vertical-align: top !important;
         }
         
         .destacado {
@@ -301,6 +495,95 @@
             border-radius: 12px;
             margin: 20px 0;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .header p {
+                font-size: 1em;
+            }
+            
+            .nav-tabs {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .nav-tab {
+                min-width: 120px;
+                font-size: 0.9em;
+                padding: 15px 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+            
+            h3 {
+                font-size: 1.2em;
+            }
+            
+            .quiz-option {
+                padding: 12px 15px;
+                width: 100% !important;
+                display: flex !important;
+                flex-direction: row !important;
+            }
+            
+            .quiz-option span {
+                font-size: 0.95em;
+            }
+            
+            .btn-submit {
+                width: 100%;
+                padding: 15px 30px;
+                font-size: 1.1em;
+            }
+            
+            .tabla-comparativa {
+                font-size: 0.9em;
+            }
+            
+            .tabla-comparativa th,
+            .tabla-comparativa td {
+                padding: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.5em;
+            }
+            
+            .quiz-question {
+                padding: 20px;
+            }
+            
+            .quiz-question h4 {
+                font-size: 1em;
+            }
+            
+            .quiz-option {
+                width: 100% !important;
+                display: flex !important;
+                margin: 10px 0 !important;
+            }
         }
     </style>
 </head>
@@ -1530,12 +1813,33 @@
             // Mostrar el contenido seleccionado
             document.getElementById(tabId).classList.add('active');
             
-            // Activar el botón correspondiente
-            event.target.classList.add('active');
+            // Activar el botón correspondiente - buscar por onclick
+            tabs.forEach(tab => {
+                const onclickAttr = tab.getAttribute('onclick');
+                if (onclickAttr && onclickAttr.includes(tabId)) {
+                    tab.classList.add('active');
+                }
+            });
             
-            // Scroll al inicio
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Scroll al inicio del contenedor
+            document.querySelector('.content').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
+        
+        // Agregar navegación con teclado
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach((tab, index) => {
+                tab.setAttribute('tabindex', '0');
+                tab.setAttribute('role', 'tab');
+                
+                tab.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        tab.click();
+                    }
+                });
+            });
+        });
         
         function evaluarQuiz() {
             const respuestasCorrectas = {
@@ -1553,12 +1857,23 @@
             
             let correctas = 0;
             let total = Object.keys(respuestasCorrectas).length;
+            let todasRespondidas = true;
             
+            // Verificar que todas las preguntas estén respondidas
             for (let pregunta in respuestasCorrectas) {
                 const seleccionada = document.querySelector(`input[name="${pregunta}"]:checked`);
-                if (seleccionada && seleccionada.value === respuestasCorrectas[pregunta]) {
+                if (!seleccionada) {
+                    todasRespondidas = false;
+                    break;
+                }
+                if (seleccionada.value === respuestasCorrectas[pregunta]) {
                     correctas++;
                 }
+            }
+            
+            if (!todasRespondidas) {
+                alert('⚠️ Por favor responde todas las preguntas antes de evaluar.');
+                return;
             }
             
             const porcentaje = (correctas / total) * 100;
@@ -1570,7 +1885,7 @@
                 resultado.style.color = '#155724';
                 resultado.innerHTML = `
                     <h3>🎉 ¡Excelente!</h3>
-                    <p>Has obtenido ${correctas} de ${total} respuestas correctas (${porcentaje.toFixed(0)}%)</p>
+                    <p>Has obtenido <strong>${correctas} de ${total}</strong> respuestas correctas (<strong>${porcentaje.toFixed(0)}%</strong>)</p>
                     <p><strong>¡Estás listo para la práctica supervisada!</strong></p>
                 `;
             } else if (porcentaje >= 60) {
@@ -1578,7 +1893,7 @@
                 resultado.style.color = '#856404';
                 resultado.innerHTML = `
                     <h3>⚠️ Bien, pero puedes mejorar</h3>
-                    <p>Has obtenido ${correctas} de ${total} respuestas correctas (${porcentaje.toFixed(0)}%)</p>
+                    <p>Has obtenido <strong>${correctas} de ${total}</strong> respuestas correctas (<strong>${porcentaje.toFixed(0)}%</strong>)</p>
                     <p>Te recomendamos revisar nuevamente el contenido del módulo.</p>
                 `;
             } else {
@@ -1586,12 +1901,15 @@
                 resultado.style.color = '#721c24';
                 resultado.innerHTML = `
                     <h3>❌ Necesitas reforzar tus conocimientos</h3>
-                    <p>Has obtenido ${correctas} de ${total} respuestas correctas (${porcentaje.toFixed(0)}%)</p>
+                    <p>Has obtenido <strong>${correctas} de ${total}</strong> respuestas correctas (<strong>${porcentaje.toFixed(0)}%</strong>)</p>
                     <p>Por favor, revisa cuidadosamente todo el contenido del módulo antes de volver a evaluar.</p>
                 `;
             }
             
-            resultado.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            // Desplazar suavemente hacia el resultado
+            setTimeout(() => {
+                resultado.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
         }
     </script>
 </body>
