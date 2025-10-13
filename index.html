@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accesos Vasculares Ecoguiados - Módulo de Capacitación</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 3px solid #1e3c72;
+            overflow-x: auto;
+        }
+        
+        .nav-tab {
+            flex: 1;
+            min-width: 150px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            background: #e9ecef;
+            border: none;
+            font-size: 1em;
+            font-weight: 600;
+            color: #495057;
+            transition: all 0.3s;
+            border-right: 1px solid #dee2e6;
+        }
+        
+        .nav-tab:hover {
+            background: #dee2e6;
+        }
+        
+        .nav-tab.active {
+            background: white;
+            color: #1e3c72;
+            border-bottom: 3px solid #1e3c72;
+            margin-bottom: -3px;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h2 {
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            font-size: 2em;
+        }
+        
+        h3 {
+            color: #2a5298;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .objetivo-box {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .info-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .info-card h4 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .procedimiento-lista {
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .procedimiento-lista ol {
+            padding-left: 20px;
+        }
+        
+        .procedimiento-lista li {
+            margin: 12px 0;
+            line-height: 1.8;
+        }
+        
+        .alert {
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 5px solid;
+        }
+        
+        .alert-warning {
+            background: #fff3cd;
+            border-color: #ffc107;
+            color: #856404;
+        }
+        
+        .alert-danger {
+            background: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+        
+        .alert-info {
+            background: #d1ecf1;
+            border-color: #17a2b8;
+            color: #0c5460;
+        }
+        
+        .tabla-comparativa {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .tabla-comparativa th {
+            background: #1e3c72;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .tabla-comparativa td {
+            padding: 15px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .tabla-comparativa tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .tabla-comparativa tr:hover {
+            background: #e9ecef;
+        }
+        
+        ul {
+            padding-left: 20px;
+            margin: 15px 0;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        strong {
+            color: #1e3c72;
+        }
+        
+        .quiz-section {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+        
+        .quiz-question {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .quiz-question h4 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+        }
+        
+        .quiz-option {
+            padding: 12px;
+            margin: 8px 0;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .quiz-option:hover {
+            background: #e9ecef;
+            border-color: #667eea;
+        }
+        
+        .quiz-option input {
+            margin-right: 10px;
+        }
+        
+        .btn-submit {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s;
+        }
+        
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+        
+        .resultado {
+            display: none;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+        
+        .destacado {
+            background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🩺 Accesos Vasculares Ecoguiados</h1>
+            <p>Actividades de Enfermería en Procedimientos Vasculares</p>
+        </div>
+        
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="mostrarTab('introduccion')">Introducción</button>
+            <button class="nav-tab" onclick="mostrarTab('periferico')">Acceso Periférico</button>
+            <button class="nav-tab" onclick="mostrarTab('midline')">Midline</button>
+            <button class="nav-tab" onclick="mostrarTab('picc')">PICC</button>
+            <button class="nav-tab" onclick="mostrarTab('arterial')">Línea Arterial</button>
+            <button class="nav-tab" onclick="mostrarTab('evaluacion')">Evaluación</button>
+        </div>
+        
+        <div class="content">
+            <!-- INTRODUCCIÓN -->
+            <div id="introduccion" class="tab-content active">
+                <h2>Introducción al Módulo</h2>
+                
+                <div class="objetivo-box">
+                    <h3>🎯 Objetivos de Aprendizaje</h3>
+                    <p>Al completar este módulo, serás capaz de:</p>
+                    <ul>
+                        <li>Identificar las características y diferencias entre los distintos tipos de accesos vasculares</li>
+                        <li>Comprender el rol de enfermería en cada procedimiento ecoguiado</li>
+                        <li>Aplicar técnicas de asepsia y preparación del paciente</li>
+                        <li>Reconocer complicaciones y realizar intervenciones oportunas</li>
+                        <li>Realizar el mantenimiento y cuidado de cada tipo de acceso vascular</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <h4>¿Qué es la Ecoguía?</h4>
+                    <p>La <strong>ecografía vascular</strong> es una técnica de imagen en tiempo real que permite visualizar vasos sanguíneos durante la inserción de catéteres, aumentando la tasa de éxito y reduciendo complicaciones.</p>
+                    
+                    <h4 style="margin-top: 20px;">Ventajas de la Ecoguía:</h4>
+                    <ul>
+                        <li>✅ Mayor tasa de éxito en el primer intento</li>
+                        <li>✅ Reducción de complicaciones (punción arterial, neumotórax)</li>
+                        <li>✅ Visualización directa del vaso</li>
+                        <li>✅ Identificación de anatomía variada o trombosis</li>
+                        <li>✅ Menor tiempo de procedimiento</li>
+                    </ul>
+                </div>
+                
+                <h3>Tabla Comparativa de Accesos Vasculares</h3>
+                <table class="tabla-comparativa">
+                    <thead>
+                        <tr>
+                            <th>Tipo de Acceso</th>
+                            <th>Duración</th>
+                            <th>Ubicación Punta</th>
+                            <th>Indicaciones Principales</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Periférico</strong></td>
+                            <td>3-5 días</td>
+                            <td>Vena periférica</td>
+                            <td>Terapias cortas, hidratación, medicación</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Midline</strong></td>
+                            <td>4-6 semanas</td>
+                            <td>Axilar/Subclavia</td>
+                            <td>Terapias intermedias, antibióticos</td>
+                        </tr>
+                        <tr>
+                            <td><strong>PICC</strong></td>
+                            <td>Hasta 12 meses</td>
+                            <td>Tercio inferior VCS</td>
+                            <td>Quimioterapia, NPT, terapias prolongadas</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Línea Arterial</strong></td>
+                            <td>Hasta 7 días</td>
+                            <td>Arteria (radial/femoral)</td>
+                            <td>Monitoreo hemodinámico, gasometrías</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="destacado">
+                    <h4>💡 Principio Fundamental</h4>
+                    <p style="font-size: 1.1em; margin-top: 10px;">El acceso vascular adecuado debe seleccionarse considerando: duración del tratamiento, tipo de terapia, condición del paciente y expectativa de vida del catéter.</p>
+                </div>
+            </div>
+            
+            <!-- ACCESO PERIFÉRICO -->
+            <div id="periferico" class="tab-content">
+                <h2>Acceso Vascular Periférico (AVP) Ecoguiado</h2>
+                
+                <div class="info-card">
+                    <h4>Definición</h4>
+                    <p>Catéter corto insertado en vena periférica (basílica, cefálica, braquial) con ayuda de ultrasonido, especialmente útil en pacientes con difícil acceso venoso.</p>
+                </div>
+                
+                <h3>Indicaciones</h3>
+                <ul>
+                    <li>Pacientes con mala red venosa visible/palpable</li>
+                    <li>Antecedentes de múltiples punciones fallidas</li>
+                    <li>Obesidad mórbida</li>
+                    <li>Deshidratación severa</li>
+                    <li>Edema</li>
+                    <li>Usuarios de drogas intravenosas</li>
+                </ul>
+                
+                <h3>Contraindicaciones</h3>
+                <div class="alert alert-danger">
+                    <strong>⚠️ Absolutas:</strong>
+                    <ul>
+                        <li>Infección en sitio de punción</li>
+                        <li>Trombosis venosa en extremidad</li>
+                        <li>Fístula arteriovenosa ipsilateral</li>
+                    </ul>
+                    <strong>⚠️ Relativas:</strong>
+                    <ul>
+                        <li>Mastectomía ipsilateral</li>
+                        <li>Linfedema</li>
+                        <li>Quemaduras en la zona</li>
+                    </ul>
+                </div>
+                
+                <div class="procedimiento-lista">
+                    <h3>Procedimiento de Enfermería - Paso a Paso</h3>
+                    <ol>
+                        <li><strong>Preparación del paciente:</strong>
+                            <ul>
+                                <li>Explicar el procedimiento</li>
+                                <li>Verificar identidad con dos identificadores</li>
+                                <li>Obtener consentimiento verbal</li>
+                                <li>Posicionar brazo en extensión a 90°</li>
+                            </ul>
+                        </li>
+                        <li><strong>Preparación del equipo:</strong>
+                            <ul>
+                                <li>Ecógrafo con gel estéril</li>
+                                <li>Catéter periférico (18-20G preferible)</li>
+                                <li>Material de asepsia (clorhexidina 2%)</li>
+                                <li>Campo estéril</li>
+                                <li>Guantes estériles</li>
+                                <li>Apósito transparente</li>
+                            </ul>
+                        </li>
+                        <li><strong>Higiene de manos quirúrgica</strong></li>
+                        <li><strong>Colocación de guantes estériles</strong></li>
+                        <li><strong>Asepsia de la piel:</strong> clorhexidina 2% con técnica de círculos concéntricos, dejar secar 30 segundos</li>
+                        <li><strong>Preparación del transductor:</strong> aplicar gel estéril o cubrir con funda estéril</li>
+                        <li><strong>Identificación del vaso:</strong>
+                            <ul>
+                                <li>Escaneo transversal para visualizar vena</li>
+                                <li>Verificar compresibilidad (vena vs arteria)</li>
+                                <li>Medir diámetro (mínimo 3-4mm)</li>
+                                <li>Evaluar profundidad</li>
+                            </ul>
+                        </li>
+                        <li><strong>Técnica de punción:</strong>
+                            <ul>
+                                <li>Técnica fuera de plano (más común) o en plano</li>
+                                <li>Ángulo 30-45° respecto a la piel</li>
+                                <li>Visualizar punta de aguja en todo momento</li>
+                                <li>Retorno venoso confirmado</li>
+                            </ul>
+                        </li>
+                        <li><strong>Avance del catéter y retiro de aguja</strong></li>
+                        <li><strong>Verificación de permeabilidad con SF 0.9%</strong></li>
+                        <li><strong>Fijación segura con apósito transparente</strong></li>
+                        <li><strong>Registro en ficha clínica:</strong> fecha, hora, calibre, sitio, intentos, profesional</li>
+                    </ol>
+                </div>
+                
+                <h3>Cuidados de Enfermería</h3>
+                <div class="info-card">
+                    <h4>Mantenimiento Diario</h4>
+                    <ul>
+                        <li>Valorar sitio de inserción cada turno (flebitis, infiltración)</li>
+                        <li>Escala de flebitis (0-4)</li>
+                        <li>Cambiar apósito si está húmedo, sucio o despegado</li>
+                        <li>Lavar con SF 0.9% antes y después de cada medicación</li>
+                        <li>Rotar sitio cada 72-96 horas o según necesidad</li>
+                    </ul>
+                </div>
+                
+                <h3>Complicaciones</h3>
+                <table class="tabla-comparativa">
+                    <thead>
+                        <tr>
+                            <th>Complicación</th>
+                            <th>Signos</th>
+                            <th>Intervención</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Flebitis</td>
+                            <td>Eritema, calor, dolor, cordón palpable</td>
+                            <td>Retirar catéter, compresas tibias, elevar extremidad</td>
+                        </tr>
+                        <tr>
+                            <td>Infiltración</td>
+                            <td>Edema, piel fría, dolor, ausencia de retorno</td>
+                            <td>Retirar catéter, elevar extremidad, compresas frías</td>
+                        </tr>
+                        <tr>
+                            <td>Extravasación</td>
+                            <td>Dolor intenso, eritema, vesículas</td>
+                            <td>SUSPENDER infusión, NO retirar catéter inicial, protocolo según fármaco</td>
+                        </tr>
+                        <tr>
+                            <td>Hematoma</td>
+                            <td>Equimosis, edema localizado</td>
+                            <td>Compresas frías, elevación</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- MIDLINE -->
+            <div id="midline" class="tab-content">
+                <h2>Catéter Midline Ecoguiado</h2>
+                
+                <div class="info-card">
+                    <h4>Definición</h4>
+                    <p>Catéter venoso periférico de longitud intermedia (15-25 cm) insertado en vena basílica, cefálica o braquial, con punta localizada en vena axilar o subclavia proximal, SIN llegar a vena cava superior.</p>
+                </div>
+                
+                <h3>Características</h3>
+                <ul>
+                    <li><strong>Longitud:</strong> 15-25 cm</li>
+                    <li><strong>Calibre:</strong> 3-5 Fr (18-20G)</li>
+                    <li><strong>Lumens:</strong> 1 o 2</li>
+                    <li><strong>Material:</strong> Poliuretano o silicona</li>
+                    <li><strong>Ubicación punta:</strong> Vena axilar o tercio proximal de subclavia</li>
+                    <li><strong>Duración:</strong> 4-6 semanas</li>
+                </ul>
+                
+                <h3>Indicaciones</h3>
+                <ul>
+                    <li>Antibioticoterapia prolongada (4-6 semanas)</li>
+                    <li>Terapias continuas de duración intermedia</li>
+                    <li>Pacientes que requieren preservar acceso central</li>
+                    <li>NPT periférica (osmolaridad <900 mOsm/L)</li>
+                    <li>Analgesia IV prolongada</li>
+                    <li>Mal acceso venoso periférico</li>
+                </ul>
+                
+                <div class="alert alert-warning">
+                    <strong>⚠️ IMPORTANTE:</strong> El Midline NO es un catéter central. NO debe usarse para:
+                    <ul>
+                        <li>NPT con osmolaridad >900 mOsm/L</li>
+                        <li>Medicamentos vesicantes (quimioterapia)</li>
+                        <li>Soluciones con pH <5 o >9</li>
+                        <li>Monitoreo de PVC</li>
+                    </ul>
+                </div>
+                
+                <div class="procedimiento-lista">
+                    <h3>Procedimiento de Inserción - Actividades de Enfermería</h3>
+                    <ol>
+                        <li><strong>Valoración pre-procedimiento:</strong>
+                            <ul>
+                                <li>Historia clínica: coagulopatías, anticoagulación</li>
+                                <li>Laboratorios: plaquetas >50.000, INR <2</li>
+                                <li>Evaluar extremidades (mastectomías, fístulas)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Preparación del paciente:</strong>
+                            <ul>
+                                <li>Explicación detallada del procedimiento</li>
+                                <li>Consentimiento informado</li>
+                                <li>Posición supina, brazo en abducción 90°</li>
+                                <li>Medición de longitud (punto de inserción a 3° espacio intercostal)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Preparación máxima de barrera estéril:</strong>
+                            <ul>
+                                <li>Gorro, mascarilla quirúrgica</li>
+                                <li>Higiene de manos quirúrgica</li>
+                                <li>Bata estéril</li>
+                                <li>Guantes estériles</li>
+                                <li>Campo estéril amplio</li>
+                            </ul>
+                        </li>
+                        <li><strong>Asepsia de piel con clorhexidina 2% alcohólica:</strong> desde punto de inserción hasta hombro, secar 30-60 segundos</li>
+                        <li><strong>Ecoguía para selección de vena:</strong>
+                            <ul>
+                                <li>Vena basílica (preferida): diámetro >3mm, profundidad <1.5cm</li>
+                                <li>Vena braquial: segunda opción</li>
+                                <li>Vena cefálica: tercera opción (alta tasa de oclusión)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Anestesia local: lidocaína 1-2% sin epinefrina</strong></li>
+                        <li><strong>Técnica Seldinger modificada o inserción directa según dispositivo</strong></li>
+                        <li><strong>Confirmación de posición:</strong>
+                            <ul>
+                                <li>ECG intracavitario (onda P alta si está muy profundo)</li>
+                                <li>Retorno venoso libre</li>
+                                <li>NO requiere radiografía de tórax</li>
+                            </ul>
+                        </li>
+                        <li><strong>Fijación con dispositivo sin suturas (Statlock) o sutura</strong></li>
+                        <li><strong>Apósito transparente estéril (cambio cada 7 días o PRN)</strong></li>
+                        <li><strong>Documentación completa en registro clínico</strong></li>
+                    </ol>
+                </div>
+                
+                <h3>Cuidados y Mantenimiento</h3>
+                <div class="info-card">
+                    <h4>Protocolo de Cuidados</h4>
+                    <ul>
+                        <li><strong>Valoración diaria:</strong> signos de infección, flebitis, infiltración</li>
+                        <li><strong>Curación:</strong> cada 7 días con técnica aséptica (o PRN si apósito sucio/despegado)</li>
+                        <li><strong>Lavado de catéter:</strong>
+                            <ul>
+                                <li>Antes y después de cada medicación: 10 ml SF 0.9%</li>
+                                <li>Técnica PUSH-PAUSE (turbulencia)</li>
+                                <li>Finalizar con presión positiva</li>
+                            </ul>
+                        </li>
+                        <li><strong>Sellado:</strong> SF 0.9% (no heparina rutinaria)</li>
+                        <li><strong>Permeabilidad:</strong> evaluar cada uso, lavado cada 12-24h si no se usa</li>
+                        <li><strong>Cambio de líneas:</strong> según protocolo institucional (cada 96h)</li>
+                    </ul>
+                </div>
+                
+                <h3>Complicaciones y Manejo</h3>
+                <table class="tabla-comparativa">
+                    <thead>
+                        <tr>
+                            <th>Complicación</th>
+                            <th>Prevención</th>
+                            <th>Manejo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tromboflebitis</td>
+                            <td>Vena adecuada (diámetro >3mm), asepsia estricta</td>
+                            <td>Retirar catéter, calor local, elevación, antibióticos si infección</td>
+                        </tr>
+                        <tr>
+                            <td>Oclusión</td>
+                            <td>Lavados adecuados, técnica push-pause</td>
+                            <td>No forzar, evaluar retorno, considerar fibrinolítico</td>
+                        </tr>
+                        <tr>
+                            <td>Migración del catéter</td>
+                            <td>Fijación segura, evitar manipulación excesiva</td>
+                            <td>Evaluar longitud externa, retirar si migración significativa</td>
+                        </tr>
+                        <tr>
+                            <td>Infección local</td>
+                            <td>Técnica aséptica, cuidados de sitio</td>
+                            <td>Retirar catéter, cultivo de punta, antibióticos</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="alert alert-info">
+                    <strong>📌 Criterios de Retiro:</strong>
+                    <ul>
+                        <li>Finalización del tratamiento</li>
+                        <li>Signos de infección local o sistémica</li>
+                        <li>Tromboflebitis</li>
+                        <li>Oclusión irreversible</li>
+                        <li>Migración del catéter</li>
+                        <li>Solicitud del paciente</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- PICC -->
+            <div id="picc" class="tab-content">
+                <h2>Catéter PICC (Peripherally Inserted Central Catheter)</h2>
+                
+                <div class="info-card">
+                    <h4>Definición</h4>
+                    <p>Catéter venoso central de inserción periférica, insertado en vena basílica, cefálica o braquial, con punta posicionada en el <strong>tercio inferior de la vena cava superior</strong>, justo por encima de la unión cavoatrial.</p>
+                </div>
+                
+                <h3>Características Técnicas</h3>
+                <ul>
+                    <li><strong>Longitud:</strong> 35-60 cm (según talla del paciente)</li>
+                    <li><strong>Calibre:</strong> 3-6 Fr (adultos comúnmente 4-5 Fr)</li>
+                    <li><strong>Lumens:</strong> 1, 2 o 3 lumens</li>
+                    <li><strong>Material:</strong> Silicona o poliuretano (biocompatibles, radiopácos)</li>
+                    <li><strong>Posición ideal de punta:</strong> Tercio inferior VCS (3° espacio intercostal)</li>
+                    <li><strong>Duración:</strong> Hasta 12 meses o más</li>
+                    <li><strong>Válvula:</strong> Con o sin válvula antirreflujo</li>
+                </ul>
+                
+                <h3>Indicaciones</h3>
+                <ul>
+                    <li>Quimioterapia (medicamentos vesicantes)</li>
+                    <li>Nutrición parenteral total (NPT)</li>
+                    <li>Antibioticoterapia prolongada (>6 semanas)</li>
+                    <li>Terapias intravenosas de larga duración</li>
+                    <li>Hemoterapia frecuente</li>
+                    <li>Extracciones sanguíneas frecuentes</li>
+                    <li>Infusión de soluciones irritantes o hiperosmolares</li>
+                    <li>Preservación de capital venoso periférico</li>
+                </ul>
+                
+                <h3>Contraindicaciones</h3>
+                <div class="alert alert-danger">
+                    <strong>Absolutas:</strong>
+                    <ul>
+                        <li>Infección de piel en sitio de inserción</li>
+                        <li>Bacteriemia/sepsis no controlada</li>
+                        <li>Trombosis venosa profunda en extremidad</li>
+                        <li>Estenosis o oclusión de VCS</li>
+                    </ul>
+                    <strong>Relativas:</strong>
+                    <ul>
+                        <li>Coagulopatía severa no corregida (plaquetas <20.000)</li>
+                        <li>Mastectomía ipsilateral con linfadenectomía</li>
+                        <li>Fístula arteriovenosa activa</li>
+                        <li>Quemaduras extensas en brazo</li>
+                        <li>Antecedente de radioterapia en hombro/tórax</li>
+                    </ul>
+                </div>
+                
+                <div class="procedimiento-lista">
+                    <h3>Procedimiento de Inserción PICC - Rol de Enfermería</h3>
+                    <ol>
+                        <li><strong>Valoración integral del paciente:</strong>
+                            <ul>
+                                <li>Anamnesis completa (anticoagulación, alergias, cirugías previas)</li>
+                                <li>Exámenes de laboratorio: hemograma, coagulación</li>
+                                <li>Evaluación de extremidades superiores</li>
+                                <li>Ecografía bilateral de MMSS para mapeo venoso</li>
+                            </ul>
+                        </li>
+                        <li><strong>Selección de vena y brazo:</strong>
+                            <ul>
+                                <li><strong>Preferencia:</strong> Brazo dominante (menor riesgo trombosis)</li>
+                                <li><strong>Vena ideal:</strong> Basílica (mayor calibre, trayecto recto)</li>
+                                <li><strong>Criterios:</strong> Diámetro >4mm, profundidad <1.5cm, sin tortuosidad</li>
+                            </ul>
+                        </li>
+                        <li><strong>Medición de longitud del catéter:</strong>
+                            <ul>
+                                <li>Punto de inserción → Hombro → Esternón → 3° espacio intercostal derecho</li>
+                                <li>Añadir 1-2 cm adicionales</li>
+                            </ul>
+                        </li>
+                        <li><strong>Consentimiento informado:</strong> explicar riesgos, beneficios, alternativas</li>
+                        <li><strong>Preparación de barrera máxima estéril:</strong>
+                            <ul>
+                                <li>Ducha del paciente con clorhexidina (ideal)</li>
+                                <li>Gorro y mascarilla para paciente y operador</li>
+                                <li>Higiene de manos quirúrgica</li>
+                                <li>Bata estéril de manga larga</li>
+                                <li>Guantes estériles</li>
+                                <li>Campo estéril de cuerpo completo</li>
+                            </ul>
+                        </li>
+                        <li><strong>Posicionamiento del paciente:</strong>
+                            <ul>
+                                <li>Decúbito supino, cabeza hacia lado opuesto</li>
+                                <li>Brazo en abducción 90°</li>
+                                <li>Evitar movimientos durante procedimiento</li>
+                            </ul>
+                        </li>
+                        <li><strong>Asepsia cutánea:</strong>
+                            <ul>
+                                <li>Clorhexidina alcohólica 2%</li>
+                                <li>Técnica de círculos concéntricos</li>
+                                <li>Área amplia (hombro a codo)</li>
+                                <li>Secar 30-60 segundos (NO secar manualmente)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Preparación del material:</strong>
+                            <ul>
+                                <li>Kit PICC estéril</li>
+                                <li>Ecógrafo con funda y gel estéril</li>
+                                <li>Lidocaína 1-2% sin epinefrina</li>
+                                <li>SF 0.9% para purga</li>
+                            </ul>
+                        </li>
+                        <li><strong>Anestesia local infiltrativa</strong></li>
+                        <li><strong>Técnica de inserción ecoguiada:</strong>
+                            <ul>
+                                <li><strong>Técnica Seldinger modificada:</strong> aguja → guía → dilatador → catéter</li>
+                                <li>Visualización continua con ecografía</li>
+                                <li>Confirmación de flujo sanguíneo libre</li>
+                            </ul>
+                        </li>
+                        <li><strong>Verificación de posición:</strong>
+                            <ul>
+                                <li><strong>ECG intracavitario:</strong> monitorear onda P (si disponible)</li>
+                                <li><strong>Radiografía de tórax PA:</strong> OBLIGATORIA antes de usar</li>
+                                <li>Punta debe estar en tercio inferior de VCS</li>
+                            </ul>
+                        </li>
+                        <li><strong>Fijación segura:</strong>
+                            <ul>
+                                <li>Dispositivo de fijación sin suturas (Statlock)</li>
+                                <li>O sutura en casos seleccionados</li>
+                            </ul>
+                        </li>
+                        <li><strong>Apósito estéril transparente</strong> (permite visualización del sitio)</li>
+                        <li><strong>Documentación exhaustiva:</strong>
+                            <ul>
+                                <li>Fecha, hora, profesional</li>
+                                <li>Vena utilizada, brazo</li>
+                                <li>Calibre, lumens, longitud externa</li>
+                                <li>Complicaciones durante inserción</li>
+                                <li>Verificación radiológica</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+                
+                <div class="destacado">
+                    <h4>⚠️ REGLA DE ORO</h4>
+                    <p style="font-size: 1.2em; margin-top: 10px;"><strong>NUNCA usar un PICC sin confirmación radiológica de la posición correcta de la punta.</strong> El uso antes de confirmar puede causar complicaciones graves (taponamiento cardíaco, arritmias, perforación vascular).</p>
+                </div>
+                
+                <h3>Mantenimiento y Cuidados del PICC</h3>
+                <div class="info-card">
+                    <h4>Protocolo de Mantenimiento</h4>
+                    
+                    <p><strong>1. Curación del Sitio de Inserción:</strong></p>
+                    <ul>
+                        <li><strong>Frecuencia:</strong> Cada 7 días (apósito transparente) o cada 48h (gasa estéril)</li>
+                        <li><strong>PRN:</strong> Si apósito húmedo, sucio, despegado o sospecha de infección</li>
+                        <li><strong>Técnica estéril:</strong>
+                            <ol>
+                                <li>Higiene de manos</li>
+                                <li>Guantes limpios para retirar apósito</li>
+                                <li>Valorar sitio (eritema, exudado, dolor)</li>
+                                <li>Higiene de manos y guantes estériles</li>
+                                <li>Limpieza con clorhexidina 2% (centro hacia fuera)</li>
+                                <li>Secar completamente</li>
+                                <li>Apósito transparente estéril nuevo</li>
+                                <li>Registrar en hoja de seguimiento</li>
+                            </ol>
+                        </li>
+                    </ul>
+                    
+                    <p style="margin-top: 20px;"><strong>2. Lavado y Sellado de Lumens:</strong></p>
+                    <ul>
+                        <li><strong>Antes de cada uso:</strong> lavar con 10 ml SF 0.9%</li>
+                        <li><strong>Después de cada uso:</strong> lavar con 20 ml SF 0.9%</li>
+                        <li><strong>Técnica PUSH-PAUSE:</strong> 1 ml cada vez, pausas de 1 segundo</li>
+                        <li><strong>Clampear con presión positiva</strong></li>
+                        <li><strong>Si no se usa:</strong> lavar cada 24 horas mínimo</li>
+                        <li><strong>Sellado:</strong> SF 0.9% o heparina según protocolo (70-100 UI/ml)</li>
+                    </ul>
+                    
+                    <p style="margin-top: 20px;"><strong>3. Administración de Terapias:</strong></p>
+                    <ul>
+                        <li>Desinfectar conexión con alcohol 70% por 15 segundos</li>
+                        <li>Técnica aséptica estricta</li>
+                        <li>Verificar retorno sanguíneo antes de infundir</li>
+                        <li>NO infundir si resistencia o dolor</li>
+                        <li>Cambiar líneas según protocolo</li>
+                    </ul>
+                    
+                    <p style="margin-top: 20px;"><strong>4. Extracción de Muestras Sanguíneas:</strong></p>
+                    <ol>
+                        <li>Desinfectar conexión</li>
+                        <li>Aspirar 5-10 ml de descarte</li>
+                        <li>Obtener muestra necesaria</li>
+                        <li>Lavar con 20 ml SF 0.9%</li>
+                    </ol>
+                </div>
+                
+                <h3>Complicaciones del PICC</h3>
+                <table class="tabla-comparativa">
+                    <thead>
+                        <tr>
+                            <th>Complicación</th>
+                            <th>Incidencia</th>
+                            <th>Factores de Riesgo</th>
+                            <th>Prevención/Manejo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Infección (IACRS)</strong></td>
+                            <td>1-3%</td>
+                            <td>Tiempo prolongado, manipulación frecuente, NPT</td>
+                            <td>Técnica aséptica, cuidados bundle, retirar si bacteriemia</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Trombosis</strong></td>
+                            <td>2-5%</td>
+                            <td>Calibre inadecuado, punta malposicionada, cáncer</td>
+                            <td>Catéter/vena adecuada, anticoagulación si indicado</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Oclusión</strong></td>
+                            <td>5-10%</td>
+                            <td>Lavados inadecuados, fármacos incompatibles</td>
+                            <td>Lavados protocolizados, fibrinolítico si necesario</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Malposición</strong></td>
+                            <td>1-5%</td>
+                            <td>Técnica inadecuada, migración posterior</td>
+                            <td>Verificación Rx, medir longitud externa regularmente</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Rotura catéter</strong></td>
+                            <td><1%</td>
+                            <td>Manipulación inadecuada, clampeo repetido en mismo sitio</td>
+                            <td>Manipulación cuidadosa, usar kit de reparación</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Arritmias</strong></td>
+                            <td><1%</td>
+                            <td>Punta en aurícula</td>
+                            <td>Verificación Rx, reposicionar si necesario</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="alert alert-warning">
+                    <strong>🚨 Signos de Alerta - Notificar Inmediatamente:</strong>
+                    <ul>
+                        <li>Fiebre sin foco claro</li>
+                        <li>Eritema, exudado purulento en sitio</li>
+                        <li>Dolor en brazo, hombro o tórax</li>
+                        <li>Edema de extremidad</li>
+                        <li>Dificultad para infundir o aspirar</li>
+                        <li>Migración del catéter (cambio en longitud externa >2cm)</li>
+                        <li>Rotura visible del catéter</li>
+                        <li>Arritmias cardíacas nuevas</li>
+                    </ul>
+                </div>
+                
+                <h3>Retiro del PICC</h3>
+                <div class="info-card">
+                    <h4>Indicaciones de Retiro:</h4>
+                    <ul>
+                        <li>Finalización del tratamiento</li>
+                        <li>Infección relacionada con catéter</li>
+                        <li>Trombosis venosa</li>
+                        <li>Oclusión irreversible</li>
+                        <li>Malposición no corregible</li>
+                        <li>Solicitud del paciente</li>
+                        <li>Complicaciones mecánicas</li>
+                    </ul>
+                    
+                    <h4 style="margin-top: 20px;">Procedimiento de Retiro:</h4>
+                    <ol>
+                        <li>Explicar al paciente</li>
+                        <li>Higiene de manos y guantes limpios</li>
+                        <li>Paciente en posición supina</li>
+                        <li>Retirar apósito y fijación</li>
+                        <li>Pedir al paciente que contenga la respiración (prevenir embolia aérea)</li>
+                        <li>Retirar lentamente con tracción constante y suave</li>
+                        <li>Si resistencia: DETENER, no forzar, avisar médico</li>
+                        <li>Medir longitud del catéter retirado (debe coincidir con registrado)</li>
+                        <li>Presión en sitio 3-5 minutos</li>
+                        <li>Apósito compresivo estéril</li>
+                        <li>Inspeccionar punta (si sospecha infección: enviar cultivo)</li>
+                        <li>Documentar: fecha, hora, longitud, integridad, complicaciones</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <!-- LÍNEA ARTERIAL -->
+            <div id="arterial" class="tab-content">
+                <h2>Catéter Arterial (Línea Arterial)</h2>
+                
+                <div class="info-card">
+                    <h4>Definición</h4>
+                    <p>Catéter insertado en una arteria periférica (radial, femoral, axilar, pedia dorsal) para monitorización hemodinámica continua y obtención frecuente de muestras de gases arteriales.</p>
+                </div>
+                
+                <h3>Características</h3>
+                <ul>
+                    <li><strong>Calibre:</strong> 18-20G (adultos)</li>
+                    <li><strong>Longitud:</strong> 3-5 cm (radial), 10-15 cm (femoral)</li>
+                    <li><strong>Material:</strong> Teflón, poliuretano</li>
+                    <li><strong>Duración:</strong> Hasta 7 días (idealmente <96h)</li>
+                    <li><strong>Sitios más comunes:</strong> Arteria radial (primera elección)</li>
+                </ul>
+                
+                <h3>Indicaciones</h3>
+                <ul>
+                    <li>Monitorización continua de presión arterial invasiva</li>
+                    <li>Inestabilidad hemodinámica severa</li>
+                    <li>Uso de vasopresores en altas dosis</li>
+                    <li>Gasometrías arteriales frecuentes</li>
+                    <li>Insuficiencia respiratoria aguda (ARM)</li>
+                    <li>Cirugía cardiovascular o neurocirugía</li>
+                    <li>Shock de cualquier origen</li>
+                    <li>Hipotensión refractaria o hipertensión severa</li>
+                </ul>
+                
+                <h3>Contraindicaciones</h3>
+                <div class="alert alert-danger">
+                    <strong>Absolutas:</strong>
+                    <ul>
+                        <li>Test de Allen anormal (para arteria radial)</li>
+                        <li>Infección local en sitio de punción</li>
+                        <li>Trombosis arterial conocida</li>
+                        <li>Fenómeno de Raynaud severo</li>
+                    </ul>
+                    <strong>Relativas:</strong>
+                    <ul>
+                        <li>Coagulopatía severa (plaquetas <20.000, INR >2)</li>
+                        <li>Enfermedad arterial periférica severa</li>
+                        <li>Quemaduras en sitio de punción</li>
+                        <li>Terapia trombolítica activa</li>
+                    </ul>
+                </div>
+                
+                <h3>Selección del Sitio Arterial</h3>
+                <table class="tabla-comparativa">
+                    <thead>
+                        <tr>
+                            <th>Arteria</th>
+                            <th>Ventajas</th>
+                            <th>Desventajas</th>
+                            <th>Consideraciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Radial</strong> (1ª elección)</td>
+                            <td>Fácil acceso, bajo riesgo, circulación colateral</td>
+                            <td>Pequeño calibre, trombosis más frecuente</td>
+                            <td>Test de Allen obligatorio</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Femoral</strong></td>
+                            <td>Mayor calibre, más estable, útil en RCP</td>
+                            <td>Mayor riesgo infección, limita movilidad</td>
+                            <td>Evitar en pacientes ambulantes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Axilar</strong></td>
+                            <td>Circulación colateral, accesible</td>
+                            <td>Riesgo neuropatía plexo braquial</td>
+                            <td>Requiere experiencia</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pedia dorsal</strong></td>
+                            <td>Alternativa en neonatos/pediátricos</td>
+                            <td>Pequeño calibre, difícil en adultos</td>
+                            <td>Poco usada en adultos</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="procedimiento-lista">
+                    <h3>Test de Allen - Evaluación de Circulación Colateral</h3>
+                    <div class="alert alert-info">
+                        <strong>Procedimiento:</strong>
+                        <ol>
+                            <li>Explicar al paciente</li>
+                            <li>Elevar la mano y cerrar el puño repetidamente (30 segundos) para drenar sangre</li>
+                            <li>Comprimir simultáneamente arterias radial y cubital</li>
+                            <li>Paciente abre la mano (debe verse pálida)</li>
+                            <li>Liberar solo presión de arteria cubital</li>
+                            <li>Observar tiempo de reperfusión de la palma</li>
+                        </ol>
+                        <strong>Interpretación:</strong>
+                        <ul>
+                            <li><strong>Normal:</strong> <6 segundos - PROCEDER</li>
+                            <li><strong>Limítrofe:</strong> 6-10 segundos - VALORAR</li>
+                            <li><strong>Anormal:</strong> >10 segundos o no reperfunde - NO CANALIZAR</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="procedimiento-lista">
+                    <h3>Procedimiento de Inserción - Arteria Radial Ecoguiada</h3>
+                    <ol>
+                        <li><strong>Preparación del paciente:</strong>
+                            <ul>
+                                <li>Explicación del procedimiento</li>
+                                <li>Consentimiento verbal</li>
+                                <li>Test de Allen (OBLIGATORIO)</li>
+                                <li>Posicionar brazo: ligera extensión, muñeca en dorsiflexión 30° (rollo bajo muñeca)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Preparación del equipo:</strong>
+                            <ul>
+                                <li>Catéter arterial 20G</li>
+                                <li>Sistema de transducción de presión preparado</li>
+                                <li>Solución heparinizada (1 UI/ml) o SF 0.9%</li>
+                                <li>Monitor conectado y calibrado</li>
+                                <li>Ecógrafo con transductor lineal</li>
+                                <li>Material de asepsia</li>
+                            </ul>
+                        </li>
+                        <li><strong>Higiene de manos y guantes estériles</strong></li>
+                        <li><strong>Asepsia con clorhexidina 2%:</strong> círculos concéntricos, secar 30 seg</li>
+                        <li><strong>Anestesia local:</strong> lidocaína 1% (0.5-1 ml) subdérmica</li>
+                        <li><strong>Identificación de arteria con ecografía:</strong>
+                            <ul>
+                                <li>Vista transversal (eje corto)</li>
+                                <li>Arteria = estructura circular, pulsátil, NO compresible</li>
+                                <li>Confirmar con Doppler color si necesario</li>
+                            </ul>
+                        </li>
+                        <li><strong>Técnica de punción:</strong>
+                            <ul>
+                                <li><strong>Técnica Seldinger:</strong> aguja → guía → catéter (más segura con eco)</li>
+                                <li><strong>Catéter sobre aguja:</strong> técnica directa (más rápida)</li>
+                                <li>Ángulo 30-45°</li>
+                                <li>Avanzar hasta retorno pulsátil de sangre</li>
+                            </ul>
+                        </li>
+                        <li><strong>Avance del catéter en el lumen arterial</strong></li>
+                        <li><strong>Retiro de aguja/guía</strong></li>
+                        <li><strong>Conexión al sistema de transducción</strong></li>
+                        <li><strong>Verificación de onda de presión en monitor:</strong>
+                            <ul>
+                                <li>Onda característica con dicrótica</li>
+                                <li>Valores coherentes con PA no invasiva</li>
+                            </ul>
+                        </li>
+                        <li><strong>Fijación segura (sutura o Statlock)</strong></li>
+                        <li><strong>Apósito transparente estéril</strong></li>
+                        <li><strong>Documentación completa</strong></li>
+                    </ol>
+                </div>
+                
+                <h3>Sistema de Monitorización</h3>
+                <div class="info-card">
+                    <h4>Componentes del Sistema de Transducción</h4>
+                    <ul>
+                        <li><strong>Transductor de presión:</strong> convierte presión mecánica en señal eléctrica</li>
+                        <li><strong>Tubos de presión:</strong> rígidos, cortos (máximo 120 cm)</li>
+                        <li><strong>Sistema de lavado continuo:</strong> 3 ml/hora de solución presurizada (300 mmHg)</li>
+                        <li><strong>Llaves de 3 vías:</strong> para lavado y extracción de muestras</li>
+                        <li><strong>Bolsa presurizada:</strong> solución heparinizada o SF 0.9%</li>
+                    </ul>
+                    
+                    <h4 style="margin-top: 20px;">Calibración del Sistema (Cero)</h4>
+                    <ol>
+                        <li>Posicionar transductor a nivel de eje flebostático (4° espacio intercostal, línea axilar media)</li>
+                        <li>Abrir transductor a presión atmosférica</li>
+                        <li>Presionar botón "ZERO" en monitor</li>
+                        <li>Cerrar llave a atmósfera</li>
+                        <li>Realizar cada 8-12 horas y PRN (cambios de posición)</li>
+                    </ol>
+                </div>
+                
+                <h3>Cuidados de Enfermería</h3>
+                <div class="info-card">
+                    <h4>Protocolo de Mantenimiento</h4>
+                    <ul>
+                        <li><strong>Valoración continua:</strong>
+                            <ul>
+                                <li>Perfusión distal cada 2-4 horas (5P: Pain, Pallor, Pulselessness, Paresthesia, Paralysis)</li>
+                                <li>Temperatura, color, llenado capilar</li>
+                                <li>Pulsos distales</li>
+                                <li>Sensibilidad y movilidad</li>
+                            </ul>
+                        </li>
+                        <li><strong>Curación del sitio:</strong>
+                            <ul>
+                                <li>Cada 24-48 horas o PRN</li>
+                                <li>Técnica aséptica estricta</li>
+                                <li>Valorar signos de infección o isquemia</li>
+                            </ul>
+                        </li>
+                        <li><strong>Sistema de transducción:</strong>
+                            <ul>
+                                <li>Cambiar cada 96 horas</li>
+                                <li>Verificar calibración (cero) cada turno</li>
+                                <li>Comprobar inexistencia de burbujas</li>
+                                <li>Verificar presión de bolsa (300 mmHg)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Obtención de gasometría:</strong>
+                            <ul>
+                                <li>Desinfectar llave de 3 vías</li>
+                                <li>Descartar 5-10 ml</li>
+                                <li>Obtener muestra (1-2 ml jeringa heparinizada)</li>
+                                <li>Lavar sistema con 5 ml rápido</li>
+                                <li>Verificar retorno de curva en monitor</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+                <h3>Interpretación de la Curva de Presión Arterial</h3>
+                <div class="info-card">
+                    <h4>Características de la Curva Normal</h4>
+                    <ul>
+                        <li><strong>Ascenso rápido:</strong> sístole (contracción ventricular)</li>
+                        <li><strong>Pico sistólico:</strong> presión arterial sistólica</li>
+                        <li><strong>Descenso:</strong> diástole</li>
+                        <li><strong>Muesca dicrótica:</strong> cierre de válvula aórtica</li>
+                        <li><strong>Presión diastólica:</strong> valor más bajo antes del siguiente ascenso</li>
+                    </ul>
+                    
+                    <h4 style="margin-top: 20px;">Problemas de la Curva</h4>
+                    <ul>
+                        <li><strong>Curva amortiguada:</strong> aire en sistema, coágulo, catéter contra pared → lavar sistema</li>
+                        <li><strong>Curva sobre-resonante:</strong> tubo muy largo, burbujas → optimizar sistema</li>
+                        <li><strong>Curva plana:</strong> desconexión, oclusión → verificar conexiones</li>
+                        <li><strong>Valores muy bajos/altos:</strong> verificar calibración, nivel transductor</li>
+                    </ul>
+                </div>
+                
+                <h3>Complicaciones</h3>
+                <table class="tabla-comparativa">
+                    <thead>
+                        <tr>
+                            <th>Complicación</th>
+                            <th>Incidencia</th>
+                            <th>Prevención</th>
+                            <th>Manejo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Trombosis arterial</strong></td>
+                            <td>1-5%</td>
+                            <td>Catéter adecuado, lavado continuo, limitar duración</td>
+                            <td>Retirar catéter, anticoagulación, valorar cirugía vascular</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hematoma</strong></td>
+                            <td>5-15%</td>
+                            <td>Técnica adecuada, presión post-retiro</td>
+                            <td>Compresión, elevación, vigilar síndrome compartimental</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Isquemia distal</strong></td>
+                            <td>0.1-1%</td>
+                            <td>Test de Allen, monitoreo perfusión</td>
+                            <td>Retirar catéter INMEDIATO, valorar cirugía</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Infección</strong></td>
+                            <td>1-2%</td>
+                            <td>Asepsia estricta, duración limitada</td>
+                            <td>Retirar catéter, cultivos, antibióticos</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hemorragia</strong></td>
+                            <td>1-3%</td>
+                            <td>Conexiones seguras, alarmas de desconexión</td>
+                            <td>Presión directa, reposición volumen</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pseudoaneurisma</strong></td>
+                            <td><1%</td>
+                            <td>Técnica adecuada, evitar punciones múltiples</td>
+                            <td>Valoración vascular, compresión eco-guiada o cirugía</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="alert alert-danger">
+                    <strong>🚨 EMERGENCIA - Actuar Inmediatamente:</strong>
+                    <ul>
+                        <li><strong>Isquemia aguda:</strong> dolor, palidez, frialdad, ausencia de pulso distal → RETIRAR catéter, avisar médico urgente</li>
+                        <li><strong>Hemorragia masiva:</strong> desconexión accidental → comprimir arteria, reponer volumen</li>
+                        <li><strong>Embolia arterial:</strong> isquemia súbita de dedos → retirar catéter, anticoagulación</li>
+                    </ul>
+                </div>
+                
+                <h3>Retiro del Catéter Arterial</h3>
+                <div class="procedimiento-lista">
+                    <h4>Procedimiento de Retiro</h4>
+                    <ol>
+                        <li>Explicar al paciente</li>
+                        <li>Higiene de manos y guantes limpios</li>
+                        <li>Retirar apósito y fijación</li>
+                        <li>Retirar catéter en un movimiento suave</li>
+                        <li><strong>Presión directa firme durante 5-10 minutos</strong> (más tiempo si anticoagulado)</li>
+                        <li>Verificar hemostasia completa</li>
+                        <li>Apósito compresivo</li>
+                        <li>Valorar perfusión distal</li>
+                        <li>Mantener reposo del brazo 30 minutos</li>
+                        <li>Seguimiento a 2, 4 y 24 horas</li>
+                        <li>Documentar procedimiento</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <!-- EVALUACIÓN -->
+            <div id="evaluacion" class="tab-content">
+                <h2>Evaluación de Conocimientos</h2>
+                
+                <div class="quiz-section">
+                    <h3>Test de Autoevaluación</h3>
+                    <p>Responde las siguientes preguntas para verificar tu comprensión del módulo:</p>
+                    
+                    <div class="quiz-question">
+                        <h4>1. ¿Cuál es la principal ventaja de usar ecoguía en la inserción de accesos vasculares?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q1" value="a">
+                            a) Reduce el tiempo del procedimiento
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q1" value="b">
+                            b) Aumenta la tasa de éxito y reduce complicaciones
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q1" value="c">
+                            c) Elimina la necesidad de asepsia
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q1" value="d">
+                            d) Permite usar catéteres más largos
+                        </label>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <h4>2. Un catéter Midline tiene su punta ubicada en:</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q2" value="a">
+                            a) Tercio inferior de la vena cava superior
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q2" value="b">
+                            b) Vena axilar o subclavia proximal
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q2" value="c">
+                            c) Aurícula derecha
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q2" value="d">
+                            d) Vena basílica media
+                        </label>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <h4>3. ¿Cuál es la ubicación ideal de la punta del catéter PICC?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q3" value="a">
+                            a) Vena subclavia
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q3" value="b">
+                            b) Tercio inferior de la vena cava superior
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q3" value="c">
+                            c) Aurícula derecha
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q3" value="d">
+                            d) Vena braquial
+                        </label>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <h4>4. El Test de Allen evalúa:</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q4" value="a">
+                            a) La permeabilidad de la arteria radial
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q4" value="b">
+                            b) La circulación colateral de la arteria cubital
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q4" value="c">
+                            c) La presión arterial sistólica
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q4" value="d">
+                            d) El diámetro de la arteria
+                        </label>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <h4>5. ¿Cuál catéter NO requiere verificación radiológica antes de su uso?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q5" value="a">
+                            a) PICC
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q5" value="b">
+                            b) Midline
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q5" value="c">
+                            c) Catéter venoso central femoral
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q5" value="d">
+                            d) Catéter venoso central subclavio
+                        </label>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <h4>6. La técnica de lavado "PUSH-PAUSE" consiste en:</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q6" value="a">
+                            a) Empujar rápidamente toda la solución salina
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q6" value="b">
+                            b) Infundir 1 ml, pausar 1 segundo, repetir
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q6" value="c">
+                            c) Pausar la infusión cada 5 minutos
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q6" value="d">
+                            d) Empujar y luego aspirar
+                        </label>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <h4>7. La complicación más grave de un catéter arterial es:</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q7" value="a">
+                            a) Hematoma local
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q7" value="b">
+                            b) Infección del sitio
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q7" value="c">
+                            c) Isquemia distal por trombosis arterial
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q7" value="d">
+                            d) Flebitis
+                        </label>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <h4>8. ¿Cuál es la frecuencia recomendada para cambiar el apósito transparente de un PICC?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q8" value="a">
+                            a) Cada 24 horas
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q8" value="b">
+                            b) Cada 48 horas
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q8" value="c">
+                            c) Cada 7 días o PRN
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q8" value="d">
+                            d) Cada 14 días
+                        </label>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <h4>9. La "barrera máxima estéril" para inserción de PICC incluye:</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q9" value="a">
+                            a) Solo guantes estériles
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q9" value="b">
+                            b) Guantes y bata estéril
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q9" value="c">
+                            c) Gorro, mascarilla, bata, guantes estériles y campo de cuerpo completo
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q9" value="d">
+                            d) Guantes y campo pequeño
+                        </label>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <h4>10. Un Test de Allen es normal cuando la reperfusión de la palma ocurre en:</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q10" value="a">
+                            a) Menos de 6 segundos
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q10" value="b">
+                            b) 6-10 segundos
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q10" value="c">
+                            c) 10-15 segundos
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q10" value="d">
+                            d) Más de 15 segundos
+                        </label>
+                    </div>
+                    
+                    <button class="btn-submit" onclick="evaluarQuiz()">Evaluar Respuestas</button>
+                    
+                    <div id="resultado-quiz" class="resultado"></div>
+                </div>
+                
+                <div style="margin-top: 40px;" class="info-card">
+                    <h3>Certificación del Módulo</h3>
+                    <p>Para obtener la certificación de este módulo debes:</p>
+                    <ul>
+                        <li>✅ Completar el test de autoevaluación con al menos 80% de respuestas correctas</li>
+                        <li>✅ Revisar todo el contenido del módulo</li>
+                        <li>✅ Participar en la práctica supervisada de inserción ecoguiada</li>
+                        <li>✅ Demostrar competencia en el mantenimiento de cada tipo de acceso</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function mostrarTab(tabId) {
+            // Ocultar todos los contenidos
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // Desactivar todos los botones
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Mostrar el contenido seleccionado
+            document.getElementById(tabId).classList.add('active');
+            
+            // Activar el botón correspondiente
+            event.target.classList.add('active');
+            
+            // Scroll al inicio
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        function evaluarQuiz() {
+            const respuestasCorrectas = {
+                q1: 'b',
+                q2: 'b',
+                q3: 'b',
+                q4: 'b',
+                q5: 'b',
+                q6: 'b',
+                q7: 'c',
+                q8: 'c',
+                q9: 'c',
+                q10: 'a'
+            };
+            
+            let correctas = 0;
+            let total = Object.keys(respuestasCorrectas).length;
+            
+            for (let pregunta in respuestasCorrectas) {
+                const seleccionada = document.querySelector(`input[name="${pregunta}"]:checked`);
+                if (seleccionada && seleccionada.value === respuestasCorrectas[pregunta]) {
+                    correctas++;
+                }
+            }
+            
+            const porcentaje = (correctas / total) * 100;
+            const resultado = document.getElementById('resultado-quiz');
+            resultado.style.display = 'block';
+            
+            if (porcentaje >= 80) {
+                resultado.style.background = 'linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%)';
+                resultado.style.color = '#155724';
+                resultado.innerHTML = `
+                    <h3>🎉 ¡Excelente!</h3>
+                    <p>Has obtenido ${correctas} de ${total} respuestas correctas (${porcentaje.toFixed(0)}%)</p>
+                    <p><strong>¡Estás listo para la práctica supervisada!</strong></p>
+                `;
+            } else if (porcentaje >= 60) {
+                resultado.style.background = 'linear-gradient(135deg, #ffd89b 0%, #19547b 100%)';
+                resultado.style.color = '#856404';
+                resultado.innerHTML = `
+                    <h3>⚠️ Bien, pero puedes mejorar</h3>
+                    <p>Has obtenido ${correctas} de ${total} respuestas correctas (${porcentaje.toFixed(0)}%)</p>
+                    <p>Te recomendamos revisar nuevamente el contenido del módulo.</p>
+                `;
+            } else {
+                resultado.style.background = 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)';
+                resultado.style.color = '#721c24';
+                resultado.innerHTML = `
+                    <h3>❌ Necesitas reforzar tus conocimientos</h3>
+                    <p>Has obtenido ${correctas} de ${total} respuestas correctas (${porcentaje.toFixed(0)}%)</p>
+                    <p>Por favor, revisa cuidadosamente todo el contenido del módulo antes de volver a evaluar.</p>
+                `;
+            }
+            
+            resultado.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
+</body>
+</html>
