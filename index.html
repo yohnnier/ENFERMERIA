@@ -376,6 +376,37 @@
             max-width: calc(100% - 40px);
         }
         
+        .btn-home {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1em;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(44, 62, 80, 0.3);
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-home:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(44, 62, 80, 0.5);
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+        }
+        
+        .btn-home:active {
+            transform: translateY(0);
+        }
+        
+        .btn-home:focus {
+            outline: 3px solid #667eea;
+            outline-offset: 2px;
+        }
+        
         .btn-submit {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -548,6 +579,20 @@
                 font-size: 1.1em;
             }
             
+            .btn-home {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+            
+            #evaluacion > div:first-child {
+                flex-direction: column !important;
+                gap: 15px;
+            }
+            
+            #evaluacion h2 {
+                text-align: center;
+            }
+            
             .tabla-comparativa {
                 font-size: 0.9em;
             }
@@ -583,6 +628,11 @@
                 width: 100% !important;
                 display: flex !important;
                 margin: 10px 0 !important;
+            }
+            
+            .btn-home {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
@@ -1575,7 +1625,12 @@
             
             <!-- EVALUACIÓN -->
             <div id="evaluacion" class="tab-content">
-                <h2>Evaluación de Conocimientos</h2>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h2 style="margin: 0;">Evaluación de Conocimientos</h2>
+                    <button class="btn-home" onclick="mostrarTab('introduccion')">
+                        🏠 Volver al Inicio
+                    </button>
+                </div>
                 
                 <div class="quiz-section">
                     <h3>Test de Autoevaluación</h3>
@@ -1795,6 +1850,13 @@
                         <li>✅ Participar en la práctica supervisada de inserción ecoguiada</li>
                         <li>✅ Demostrar competencia en el mantenimiento de cada tipo de acceso</li>
                     </ul>
+                </div>
+                
+                <div style="text-align: center; margin-top: 40px; padding: 30px; background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%); border-radius: 15px;">
+                    <h3 style="color: #1e3c72; margin-bottom: 20px;">¿Necesitas repasar algún tema?</h3>
+                    <button class="btn-home" onclick="mostrarTab('introduccion')" style="font-size: 1.1em; padding: 15px 35px;">
+                        🏠 Volver al Inicio del Módulo
+                    </button>
                 </div>
             </div>
         </div>
