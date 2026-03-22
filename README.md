@@ -1,17 +1,25 @@
-# 🫁 Cursos Enfermería UTI
+# 🫁 Cursos Enfermería UTI — Hospital de Ovalle
 
 Módulos educativos interactivos para Enfermería en Unidades de Tratamiento Intensivo.
 
-## Contenido
+## Módulos disponibles
 
-| Módulo | Tema | Link |
-|--------|------|------|
-| 01 | Drenaje Pleural en Alta Complejidad | [Ver presentación](https://yohnnier.github.io/cursos-enfermeria/drenaje_pleural_moodle.html) |
+| # | Módulo | Tema | Ver |
+|---|--------|------|-----|
+| 01 | Dinámica de Presiones y Fluidos | Drenaje Pleural en Alta Complejidad | [▶ Abrir](https://yohnnier.github.io/ENFERMERIA/drenaje_pleural_moodle.html) |
+| 02 | Guía Clínica de Referencia | Gestión Clínica Avanzada del Drenaje Pleural | [▶ Abrir](https://yohnnier.github.io/ENFERMERIA/gestion_clinica_drenaje_pleural.html) |
 
 ## Uso en Moodle
 
+### Módulo 01
 ```html
-<iframe src="https://yohnnier.github.io/cursos-enfermeria/drenaje_pleural_moodle.html"
+<iframe src="https://yohnnier.github.io/ENFERMERIA/drenaje_pleural_moodle.html"
+        width="100%" height="600" frameborder="0" allowfullscreen></iframe>
+```
+
+### Módulo 02
+```html
+<iframe src="https://yohnnier.github.io/ENFERMERIA/gestion_clinica_drenaje_pleural.html"
         width="100%" height="600" frameborder="0" allowfullscreen></iframe>
 ```
 
